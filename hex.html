@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color-Flipper</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border-style: border-box;
+            font: 1em sans-serif;
+        }
+        nav{
+            background-color: rgb(253, 251, 249);
+        }
+        .nav-center{
+            top: 0;
+            width: 100vw;
+            height: 8vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: rgb(9, 155, 253);
+            background-color: rgb(253, 251, 249);
+        }
+        .nav-links{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            list-style: none;
+            margin-right: -5vw;
+            width: 20vw;
+        }
+        .nav-links a{
+            text-decoration: none;
+            color: black;
+        }
+        .body{
+            background-color: #f1f5f8;
+        }
+        .container{
+            font-size: 20px;
+            width: 100vw;
+            position: absolute;
+            top: 40vh;
+            display: flex;
+            flex-direction: column;
+            gap: 4vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .container h2, .container h2 span{
+            background-color: black;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            width: 100vw;
+        }
+        .container h2 span{
+            color: rgb(0, 128, 255);
+        }
+        .container h2{
+            border-radius: 6%;
+            padding: 5vh;
+            text-align: center;
+
+        }
+        .btn{
+            border: 2px solid black;
+            width: 200px;
+            height: 50px;
+            border-radius: 5%;
+            font-weight: 600;
+            background-color: transparent;
+        }
+        .btn:hover{
+            border: 4px solid rgb(5, 174, 252);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-center">
+            <h4>C o l o r   --  F l i p p e r</h4>
+            <ul class="nav-links">
+                <li>
+                    <a href="index.html">S i m p l e</a>
+                </li>
+                <li>
+                    <a href="hex.html">H e x</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+                <h2> Background color : <span class="color"># f 1 f 5 f 8</span></h2>
+            
+            <button class="btn btn-hero" id="btn">C L I C K -- M E</button>
+        </div>
+    </main>
+    <script>
+        const hex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 
+                        'E', 'F'];
+        const btn = document.getElementById("btn");
+        const color =  document.querySelector(".color");
+        btn.addEventListener("click", function(){
+            let hexcode = '#'; // not to use const
+            for(let i = 0; i<6 ; i++){
+                const random = getRandomNumber();
+                hexcode += hex[random];
+            }
+            color.textContent = hexcode;
+            document.body.style.backgroundColor = hexcode;
+        });
+
+        function getRandomNumber(){
+            return Math.floor(Math.random() * 15);
+        }
+    </script>
+</body>
+
+</html>
